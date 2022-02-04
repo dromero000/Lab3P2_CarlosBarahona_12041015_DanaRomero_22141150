@@ -9,20 +9,16 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  *
  * @author Dana Romero
  */
-public class Transporte {
+public class Rapidito extends Transporte {
+    
     //Atributos
-    String placa;
-    String color;
-    String transportista;
-    int cantMax;
+    int sillas;
     
-    
-    public Transporte (String placa, String color, String transportista){
-       this.placa = placa;
-       this.color= color;
-       this.transportista=transportista;
+    //Constructor
+    public Rapidito (String placa, String color, String transportista, int sillas){
+        super(placa, color, transportista);
+        this.sillas = sillas;
+        this.cantMax = sillas;
     }
-
-           
     
 }
