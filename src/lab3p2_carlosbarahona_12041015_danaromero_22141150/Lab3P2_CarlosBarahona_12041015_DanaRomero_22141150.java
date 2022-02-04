@@ -51,7 +51,7 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                     String nombreClase = s.nextLine();
                     System.out.println("Ingrese el codigo de la clase");
                     int codigo = s.nextInt();
-                     clases.add(new Clases(nombreClase, codigo));
+                    clases.add(new Clases(nombreClase, codigo));
 
                     break;
                 }
@@ -148,11 +148,11 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                 if (clases.get(item3) instanceof Clases) {
                                     try {
 
-                                       ((Alumnos) personas.get(item2)).getClases().add(clases.get(item3));
+                                        ((Alumnos) personas.get(item2)).getClases().add(clases.get(item3));
                                     } catch (Exception e) {
                                         System.out.println("Hubo un error.");
                                     }
-                                 
+
                                 }
                             } else {
                                 System.out.println("No se encontro el codigo de la clase");
@@ -315,6 +315,12 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                     break;
                 }
                 case 8: {
+                    for (int f = 0; f < clases.size(); f++) {
+                        if (clases.get(f) instanceof Clases) {
+                            System.out.println(clases.get(f));
+
+                        }
+                    }
                     break;
                 }
                 case 9: {
