@@ -10,5 +10,18 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  * @author Dana Romero
  */
 public class Transporte {
+    //Atributos
+    String placa;
+    String color;
+    String transportista;
+    
+    
+    public Transporte (String placa, String color, String transportista){
+       this.placa = placa;
+       this.color= color;
+       this.transportista=transportista;
+    }
+
+           
     
 }
