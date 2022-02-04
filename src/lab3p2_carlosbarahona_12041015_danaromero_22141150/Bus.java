@@ -20,5 +20,6 @@ public class Bus extends Transporte{
         this.sillas = sillas;
         this.personasPie = personasPie;
         this.cantMax =sillas+personasPie;
+        
     }
 }
