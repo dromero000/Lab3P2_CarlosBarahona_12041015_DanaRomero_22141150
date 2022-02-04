@@ -9,13 +9,6 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  *
  * @author Dana Romero
  */
-public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args) {
-        // TODO code application logic here
-    }
+public class Transporte {
     
 }
