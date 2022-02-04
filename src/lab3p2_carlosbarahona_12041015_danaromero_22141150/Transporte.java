@@ -12,6 +12,7 @@ import java.util.ArrayList;
  * @author Dana Romero
  */
 public class Transporte {
+    //Esta es una clase padre
     //Atributos
     String placa;
     String color;
@@ -27,7 +28,6 @@ public class Transporte {
        estaciones = new ArrayList <Estaciones>();
        
     }
-
-           
     
+
 }
