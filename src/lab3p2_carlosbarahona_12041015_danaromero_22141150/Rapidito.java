@@ -21,4 +21,7 @@ public class Rapidito extends Transporte {
         this.cantMax = sillas;
     }
     
+    public String toString(){
+        return "Transporte= Rapidito ,"+ super.toString()+ " Cantidad de Sillas= "+ sillas+"}";
+    }
 }

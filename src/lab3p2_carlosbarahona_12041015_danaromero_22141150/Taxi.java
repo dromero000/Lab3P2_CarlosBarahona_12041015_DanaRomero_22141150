@@ -16,4 +16,8 @@ public class Taxi extends Transporte{
         super(placa, color, transportista);
         this.cantMax = 4;
     }
+    
+    public String toString(){
+        return "Transporte= Taxi ,"+ super.toString()+"}";
+    }
 }

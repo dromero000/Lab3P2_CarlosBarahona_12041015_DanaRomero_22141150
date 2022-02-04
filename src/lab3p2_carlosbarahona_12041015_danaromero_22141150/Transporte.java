@@ -19,6 +19,7 @@ public class Transporte {
     String transportista;
     int cantMax;
     ArrayList <Estaciones> estaciones;
+    ArrayList <Alumnos> alumnos;
     
     
     public Transporte (String placa, String color, String transportista){
@@ -26,8 +27,23 @@ public class Transporte {
        this.color= color;
        this.transportista=transportista;
        estaciones = new ArrayList <Estaciones>();
+       alumnos = new ArrayList <Alumnos>();
        
     }
-    
 
+    @Override
+    public String toString() {
+        return "Placa=" + placa + ", color=" + color + ", transportista=" + transportista + ", Cantidad Máxima de Personas=" + cantMax + ", Estaciones=" + estaciones;
+    }
+    
+    
+    
+    //Métodos
+    /*
+    public void simulacion( ){
+        int x1 = 0;
+        int x2= 0;
+        System.out.println("");
+    }
+     */
 }

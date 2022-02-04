@@ -38,7 +38,7 @@ public class Transportistas extends Personas {
 
     @Override
     public String toString() {
-        return "Transportistas{" + "a\u00f1osExperiencia=" + añosExperiencia + ", apodo=" + apodo + '}';
+        return "Transportistas{" + "a\u00f1os Experiencia=" + añosExperiencia + ", apodo=" + apodo + '}';
     }
 
 }

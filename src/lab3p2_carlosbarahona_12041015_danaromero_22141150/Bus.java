@@ -22,4 +22,8 @@ public class Bus extends Transporte{
         this.cantMax =sillas+personasPie;
         
     }
+    
+    public String toString(){
+        return "Transporte= Bus ,"+ super.toString()+", Cantidad de Sillas= "+sillas+", Cantidad de Personas a Pie= "+personasPie+"}";
+    }
 }
