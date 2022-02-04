@@ -13,13 +13,8 @@ public class Mototaxi extends Transporte{
     
     
     //Constructor
-    public Mototaxi (String placa, String color, String transportista){
+    public Mototaxi (String placa, String color, Transportistas transportista){
         super(placa, color, transportista);
         this.cantMax = 2;
     }
-    
-    public String toString(){
-        return "Transporte= Mototaxi ,"+ super.toString()+"}";
-    }
-    
 }

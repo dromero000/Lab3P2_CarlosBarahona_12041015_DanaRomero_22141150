@@ -14,6 +14,7 @@ public class Transportistas extends Personas {
     private int añosExperiencia;
     private String apodo;
 
+
     public Transportistas(int añosExperiencia, String apodo, String nombre, int identidad, String fechaNacimiento) {
         super(nombre, identidad, fechaNacimiento);
         this.añosExperiencia = añosExperiencia;
@@ -38,7 +39,7 @@ public class Transportistas extends Personas {
 
     @Override
     public String toString() {
-        return "Transportistas{" + "a\u00f1os Experiencia=" + añosExperiencia + ", apodo=" + apodo + '}';
+        return "Transportistas{" + "Nombre=" + nombre + " Identidad=" + identidad + " Fecha Nacimiento=" + fechaNacimiento + " AñosExperiencia=" + añosExperiencia + ", apodo=" + apodo + '}';
     }
 
 }

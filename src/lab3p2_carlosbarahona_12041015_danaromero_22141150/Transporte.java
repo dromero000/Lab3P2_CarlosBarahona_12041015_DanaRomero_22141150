@@ -16,34 +16,65 @@ public class Transporte {
     //Atributos
     String placa;
     String color;
-    String transportista;
+    Transportistas transportista;
     int cantMax;
     ArrayList <Estaciones> estaciones;
-    ArrayList <Alumnos> alumnos;
     
     
-    public Transporte (String placa, String color, String transportista){
+    public Transporte (String placa, String color, Transportistas transportista){
        this.placa = placa;
        this.color= color;
        this.transportista=transportista;
        estaciones = new ArrayList <Estaciones>();
-       alumnos = new ArrayList <Alumnos>();
        
+    }
+
+    public String getPlaca() {
+        return placa;
+    }
+
+    public void setPlaca(String placa) {
+        this.placa = placa;
+    }
+
+    public String getColor() {
+        return color;
+    }
+
+    public void setColor(String color) {
+        this.color = color;
+    }
+
+    public Transportistas getTransportista() {
+        return transportista;
+    }
+
+    public void setTransportista(Transportistas transportista) {
+        this.transportista = transportista;
+    }
+
+    public int getCantMax() {
+        return cantMax;
+    }
+
+    public void setCantMax(int cantMax) {
+        this.cantMax = cantMax;
+    }
+
+    public ArrayList<Estaciones> getEstaciones() {
+        return estaciones;
+    }
+
+    public void setEstaciones(ArrayList<Estaciones> estaciones) {
+        this.estaciones = estaciones;
     }
 
     @Override
     public String toString() {
-        return "Placa=" + placa + ", color=" + color + ", transportista=" + transportista + ", Cantidad Máxima de Personas=" + cantMax + ", Estaciones=" + estaciones;
+        return "Transporte{" + "placa=" + placa + ", color=" + color + ", transportista=" + transportista + ", cantMax=" + cantMax + ", estaciones=" + estaciones + '}';
     }
     
     
     
-    //Métodos
-    /*
-    public void simulacion( ){
-        int x1 = 0;
-        int x2= 0;
-        System.out.println("");
-    }
-     */
+
 }

@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Alumnos extends Personas {
     
     private int idEstudiante;
-    private ArrayList clases ;
+    private ArrayList<Clases> clases ;
 
-    public Alumnos(int idEstudiante, ArrayList clases, String nombre, int identidad, String fechaNacimiento) {
+    public Alumnos(int idEstudiante, ArrayList<Clases> clases, String nombre, int identidad, String fechaNacimiento) {
         super(nombre, identidad, fechaNacimiento);
         this.idEstudiante = idEstudiante;
         this.clases = clases;
@@ -40,7 +40,7 @@ public class Alumnos extends Personas {
 
     @Override
     public String toString() {
-        return "Alumnos{" + "idEstudiante=" + idEstudiante + ", clases=" + clases + '}';
+        return "Alumnos{"+ "Nombre="+nombre +" Identidad="+identidad+" Fecha Nacimiento="+fechaNacimiento + " idEstudiante=" + idEstudiante + ", clases=" + clases + '}';
     }
     
    

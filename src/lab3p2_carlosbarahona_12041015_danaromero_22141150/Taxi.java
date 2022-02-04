@@ -11,13 +11,27 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  */
 public class Taxi extends Transporte{
     
-    //Constructor
-    public Taxi (String placa, String color, String transportista){
-        super(placa, color, transportista);
-        this.cantMax = 4;
-    }
+    private int numTaxi;
     
-    public String toString(){
-        return "Transporte= Taxi ,"+ super.toString()+"}";
+    //Constructor
+
+    public Taxi(int numTaxi, String placa, String color, Transportistas transportista) {
+        super(placa, color, transportista);
+        this.numTaxi = numTaxi;
     }
+
+    public int getNumTaxi() {
+        return numTaxi;
+    }
+
+    public void setNumTaxi(int numTaxi) {
+        this.numTaxi = numTaxi;
+    }
+
+    @Override
+    public String toString() {
+        return "Taxi{" + "numTaxi=" + numTaxi + '}';
+    }
+   
+    
 }

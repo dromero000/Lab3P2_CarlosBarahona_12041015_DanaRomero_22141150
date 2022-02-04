@@ -15,13 +15,25 @@ public class Rapidito extends Transporte {
     int sillas;
     
     //Constructor
-    public Rapidito (String placa, String color, String transportista, int sillas){
+    public Rapidito (String placa, String color, Transportistas transportista, int sillas){
         super(placa, color, transportista);
         this.sillas = sillas;
         this.cantMax = sillas;
     }
-    
-    public String toString(){
-        return "Transporte= Rapidito ,"+ super.toString()+ " Cantidad de Sillas= "+ sillas+"}";
+
+    public int getSillas() {
+        return sillas;
     }
+
+    public void setSillas(int sillas) {
+        this.sillas = sillas;
+    }
+
+    @Override
+    public String toString() {
+        return "Rapidito{" + "sillas=" + sillas + '}';
+    }
+    
+    
+    
 }

@@ -15,15 +15,11 @@ public class Bus extends Transporte{
     int personasPie;
     
     //Constructor
-    public Bus (String placa, String color, String transportista, int sillas, int personasPie, int cantMax){
+    public Bus (String placa, String color, Transportistas transportista, int sillas, int personasPie, int cantMax){
         super(placa, color, transportista);
         this.sillas = sillas;
         this.personasPie = personasPie;
         this.cantMax =sillas+personasPie;
         
-    }
-    
-    public String toString(){
-        return "Transporte= Bus ,"+ super.toString()+", Cantidad de Sillas= "+sillas+", Cantidad de Personas a Pie= "+personasPie+"}";
     }
 }

@@ -11,9 +11,9 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  */
 public class Personas {
 
-    private String nombre;
-    private int identidad;
-    private String fechaNacimiento;
+    public String nombre;
+    public int identidad;
+    public String fechaNacimiento;
 
     public Personas(String nombre, int identidad, String fechaNacimiento) {
         this.nombre = nombre;

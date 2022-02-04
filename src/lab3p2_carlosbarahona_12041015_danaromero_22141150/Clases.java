@@ -10,18 +10,17 @@ package lab3p2_carlosbarahona_12041015_danaromero_22141150;
  * @author Dana Romero
  */
 public class Clases {
+
     private String nombreClase;
     private int codigoClase;
-    
-    //Consctructor
-    
-    public Clases (String nombreClase, int codigoClase){
-        this.nombreClase=nombreClase;
-        this.codigoClase=codigoClase;
-    }
-    
-    //Setters y Getters
 
+    //Consctructor
+    public Clases(String nombreClase, int codigoClase) {
+        this.nombreClase = nombreClase;
+        this.codigoClase = codigoClase;
+    }
+
+    //Setters y Getters
     public String getNombreClase() {
         return nombreClase;
     }
@@ -37,7 +36,10 @@ public class Clases {
     public void setCodigoClase(int codigoClase) {
         this.codigoClase = codigoClase;
     }
-    
-    
-    
+
+    @Override
+    public String toString() {
+        return "Clases{" + "nombreClase=" + nombreClase + ", codigoClase=" + codigoClase + '}';
+    }
+
 }
