@@ -144,7 +144,7 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                     item3 = 100000;
                                 }
                             }
-                            if (item3 <= personas.size()) {
+                            if (item3 <= clases.size()) {
                                 if (clases.get(item3) instanceof Clases) {
                                     try {
 
@@ -230,8 +230,10 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                 System.out.println("Escribala capacidad de personas de pie");
                                 int personasPie = s.nextInt();
                                 Transportistas tr = null;
-                                int capMax = 0;
-                                transportes.add(new Bus(placa, color, tr, sillas, personasPie, capMax));
+                                int capMax = sillas + personasPie;
+                                ArrayList<Estaciones> estacioness = new ArrayList();
+                                ArrayList<Alumnos> alumnos = new ArrayList();
+                                transportes.add(new Bus(sillas, personasPie, placa, color, tr, capMax, estaciones, alumnos));
 
                                 break;
                             }
@@ -253,9 +255,11 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                 String color = s.nextLine();
                                 System.out.println("Escriba el numero de sillas que tiene el rapidito");
                                 int sillas = s.nextInt();
-
+                                ArrayList<Alumnos> alumnos = new ArrayList();
+                                int cantMax = sillas;
                                 Transportistas tr = null;
-                                transportes.add(new Rapidito(placa, color, tr, sillas));
+                                ArrayList<Estaciones> estacioness = new ArrayList();
+                                transportes.add(new Rapidito(sillas, placa, color, tr, cantMax, estacioness, alumnos));
 
                                 break;
                             }
@@ -277,9 +281,11 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                 String color = s.nextLine();
                                 System.out.println("Escriba el numero de taxi que tiene el taxi");
                                 int numTaxi = s.nextInt();
-
+                                ArrayList<Estaciones> estacioness = new ArrayList();
+                                ArrayList<Alumnos> alumnos = new ArrayList();
                                 Transportistas tr = null;
-                                transportes.add(new Taxi(numTaxi, placa, color, tr));
+                                int cantMax = 4;
+                                transportes.add(new Taxi(numTaxi, placa, color, tr, cantMax, estacioness, alumnos));
 
                                 break;
                             }
@@ -300,8 +306,10 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                                 System.out.println("Escriba el color de la mototaxi");
                                 String color = s.nextLine();
                                 Transportistas tr = null;
-
-                                transportes.add(new Mototaxi(placa, color, tr));
+                                ArrayList<Alumnos> alumnos = new ArrayList();
+                                int cantMax = 2;
+                                ArrayList<Estaciones> estacioness = new ArrayList();
+                                transportes.add(new Mototaxi(placa, color, tr, cantMax, estacioness, alumnos));
 
                                 break;
                             }
@@ -312,6 +320,255 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
                     break;
                 }
                 case 7: {
+                    System.out.println("Menú de Simulación");
+
+                    System.out.print("Ingrese la posición del transporte: ");
+                    int posicion = s.nextInt();
+                    Transporte transporte = transportes.get(posicion);
+
+                    int opcion8;
+
+                    do {
+                        System.out.println("0 - Salir\n1 - Subir alumno al transporte\n2 - Bajar alumno del transporte\n3 - Listar alumnos del transporte"
+                                + "\n4 - Escoger transportista\n5 - Quitar transportista\n6 - Añadir Estación\n7 - Quitar Estación\n8 - Imprimir transporte\n9 - Comenzar");
+                        System.out.print("Seleccione una opción: ");
+                        opcion8 = s.nextInt();
+                        switch (opcion8) {
+                            case 0:
+                                System.out.println("Gracias");
+                                break;
+                            case 1:
+                                System.out.print("Ingrese el ID del alumno que desea subir al transporte: ");
+                                int id = s.nextInt();
+                                int item2 = 0;
+
+                                for (int z = 0; z < personas.size(); z++) {
+                                    int idAlumno2 = 0;
+                                    if (personas.get(z) instanceof Alumnos) {
+                                        idAlumno2 = ((Alumnos) personas.get(z)).getIdEstudiante();
+                                    }
+                                    if (id == idAlumno2) {
+                                        item2 = z;
+                                        z = personas.size();
+                                    } else {
+                                        item2 = 100000;
+                                    }
+
+                                }
+
+                                if (item2 <= personas.size()) {
+                                    if (personas.get(item2) instanceof Alumnos) {
+                                        try {
+
+                                            transportes.get(posicion)
+                                                    .getAlumnos().add((Alumnos) personas.get(item2));
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el ID del alumno");
+                                }
+                                break;
+                            case 2:
+                                System.out.print("Ingrese el ID del alumno que desea bajar del transporte: ");
+                                int id2 = s.nextInt();
+                                int item3 = 0;
+
+                                for (int z = 0; z < transportes.get(posicion).getAlumnos().size(); z++) {
+                                    int idAlumno2 = 0;
+                                    if (personas.get(z) instanceof Alumnos) {
+                                        idAlumno2 = ((Alumnos) transportes.get(posicion).getAlumnos().get(z)).getIdEstudiante();
+                                    }
+                                    if (id2 == idAlumno2) {
+                                        item3 = z;
+                                        z = transportes.get(posicion).getAlumnos().size();
+                                    } else {
+                                        item3 = 100000;
+                                    }
+
+                                }
+
+                                if (item3 <= personas.size()) {
+                                    if (personas.get(item3) instanceof Alumnos) {
+                                        try {
+
+                                            transportes.get(posicion)
+                                                    .getAlumnos().remove(item3);
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el ID del alumno");
+                                }
+
+                                break;
+                            case 3:
+                                System.out.println("Listar alumnos del transporte");
+                                for (int o = 0; o < transportes.get(posicion).getAlumnos().size(); o++) {
+
+                                    System.out.println(transportes.get(posicion).getAlumnos().get(o));
+
+                                }
+                                break;
+                            case 4:
+                                System.out.println("Escoger Transportista");
+                                System.out.print("Ingrese el apodo del transportista que desea que conduzca el transporte: ");
+                                s.nextLine();
+                                String apodo = s.nextLine();
+                                int item4 = 0;
+
+                                for (int z = 0; z < personas.size(); z++) {
+                                    String apodo2 = "";
+                                    if (personas.get(z) instanceof Transportistas) {
+                                        apodo2 = ((Transportistas) personas.get(z)).getApodo();
+                                    }
+                                    if (apodo.equals(apodo2)) {
+                                        item4 = z;
+                                        z = personas.size();
+                                    } else {
+                                        item4 = 100000;
+                                    }
+
+                                }
+
+                                if (item4 <= personas.size()) {
+                                    if (personas.get(item4) instanceof Transportistas) {
+                                        try {
+
+                                            transportes.get(posicion)
+                                                    .setTransportista((Transportistas) personas.get(item4));
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el apodo del transportista");
+                                }
+                                break;
+                            case 5:
+                                System.out.println("Quitar transportista");
+                                System.out.print("Ingrese el apodo del transportista que desea que quitar del transporte: ");
+                                s.nextLine();
+                                String apodo2 = s.nextLine();
+                                int item5 = 0;
+
+                                for (int z = 0; z < personas.size(); z++) {
+                                    String apodo3 = "";
+                                    if (personas.get(z) instanceof Transportistas) {
+                                        apodo3 = ((Transportistas) personas.get(z)).getApodo();
+                                    }
+                                    if (apodo2.equals(apodo3)) {
+                                        item5 = z;
+                                        z = personas.size();
+                                    } else {
+                                        item5 = 100000;
+                                    }
+
+                                }
+
+                                if (item5 <= personas.size()) {
+                                    if (personas.get(item5) instanceof Transportistas) {
+                                        try {
+                                            Transportistas tr2 = null;
+
+                                            transportes.get(posicion)
+                                                    .setTransportista(tr2);
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el apodo del transportista");
+                                }
+                                break;
+                            case 6:
+                                System.out.print("Ingrese el nombre de la estacion que desea agregar al transporte: ");
+                                s.nextLine();
+                                String nombreEstacion = s.nextLine();
+                                int item6 = 0;
+
+                                for (int z = 0; z < estaciones.size(); z++) {
+                                    String estacion2 = "";
+                                    if (estaciones.get(z) instanceof Estaciones) {
+                                        estacion2 = ((Estaciones) estaciones.get(z)).getNombre();
+                                    }
+                                    if (nombreEstacion.equals(estacion2)) {
+                                        item6 = z;
+                                        z = estaciones.size();
+                                    } else {
+                                        item6 = 100000;
+                                    }
+
+                                }
+
+                                if (item6 <= estaciones.size()) {
+                                    if (estaciones.get(item6) instanceof Estaciones) {
+                                        try {
+
+                                            transportes.get(posicion)
+                                                    .getEstaciones().add(estaciones.get(item6));
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el apodo del transportista");
+                                }
+                                break;
+                            case 7:
+                                System.out.print("Ingrese el nombre de la estacion que desea quitar al transporte: ");
+                                s.nextLine();
+                                String nombreEstacion2 = s.nextLine();
+                                int item7 = 0;
+
+                                for (int z = 0; z < transportes.get(posicion).getEstaciones().size(); z++) {
+                                    String estacion2 = "";
+                                    if (transportes.get(posicion).getEstaciones().get(z) instanceof Estaciones) {
+                                        estacion2 = ((Estaciones) transportes.get(posicion).getEstaciones().get(z)).getNombre();
+                                    }
+                                    if (nombreEstacion2.equals(estacion2)) {
+                                        item7 = z;
+                                        z = transportes.get(posicion).getEstaciones().size();
+                                    } else {
+                                        item7 = 100000;
+                                    }
+
+                                }
+
+                                if (item7 <= estaciones.size()) {
+                                    if (estaciones.get(item7) instanceof Estaciones) {
+                                        try {
+
+                                            transportes.get(posicion)
+                                                    .getEstaciones().remove(item7);
+                                        } catch (Exception e) {
+                                            System.out.println("La posicion del transporte es incorrecta.");
+                                        }
+
+                                    }
+                                } else {
+                                    System.out.println("No se encontro el apodo del transportista");
+                                }
+                                break;
+                            case 8:
+                                System.out.println(transportes.get(posicion));
+
+                                break;
+                            case 9:
+                                System.out.println("Simulación");
+                                simulacion(transportes.get(posicion), 0, 0, transportes.get(posicion).estaciones.size());
+                                break;
+                        }
+
+                    } while (opcion != 0 || opcion != 9);
+
                     break;
                 }
                 case 8: {
@@ -363,6 +620,47 @@ public class Lab3P2_CarlosBarahona_12041015_DanaRomero_22141150 {
             }
         }
 
+    }
+
+    public static void simulacion(Transporte transporte, int x1, int y1, int n) {
+        if (n > 0) {
+            Estaciones siguienteEstacion = transporte.estaciones.get(0);
+            double distancia = distancia(x1, y1, transporte.estaciones.get(0).x, transporte.estaciones.get(0).y);
+            for (Estaciones estacion : transporte.estaciones) {
+                double distancia2 = distancia(x1, y1, estacion.x, estacion.y);
+                if (distancia2 < distancia) {
+                    siguienteEstacion = estacion;
+                    distancia = distancia2;
+                }
+            }
+            System.out.println("Vamos a la estación " + siguienteEstacion);
+            System.out.println("Alumnos en el transporte:");
+            for (int h = 0; h < transporte.alumnos.size(); h++) {
+
+                System.out.println(transporte.alumnos.get(h));
+
+            }
+            Random r = new Random();
+
+            int cantidadAlumnos = transporte.alumnos.size() / n;
+            for (int d = 0; d < cantidadAlumnos; d++) {
+                int remover = r.nextInt((transporte.alumnos.size() - 0) + 1) + 0;
+                transporte.alumnos.remove(remover);
+            }
+            System.out.println("Cantidad de alumnos que se bajan " + cantidadAlumnos);
+            transporte.estaciones.remove(siguienteEstacion);
+            n = transporte.estaciones.size();
+            simulacion(transporte, siguienteEstacion.x, siguienteEstacion.y, n);
+
+        } else {
+            Transportistas tr5 = null;
+            transporte.setTransportista(tr5);
+        }
+
+    }
+
+    public static double distancia(int x1, int y1, int x2, int y2) {
+        return Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
     }
 
 }

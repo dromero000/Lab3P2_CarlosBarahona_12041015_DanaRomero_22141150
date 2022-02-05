@@ -5,19 +5,21 @@
  */
 package lab3p2_carlosbarahona_12041015_danaromero_22141150;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Dana Romero
  */
-public class Taxi extends Transporte{
-    
-    private int numTaxi;
-    
-    //Constructor
+public class Taxi extends Transporte {
 
-    public Taxi(int numTaxi, String placa, String color, Transportistas transportista) {
-        super(placa, color, transportista);
+    private int numTaxi;
+
+    //Constructor
+    public Taxi(int numTaxi, String placa, String color, Transportistas transportista, int cantMax, ArrayList<Estaciones> estaciones, ArrayList<Alumnos> alumnos) {
+        super(placa, color, transportista, cantMax, estaciones, alumnos);
         this.numTaxi = numTaxi;
+        this.alumnos = alumnos;
     }
 
     public int getNumTaxi() {
@@ -32,6 +34,5 @@ public class Taxi extends Transporte{
     public String toString() {
         return "Taxi{" + "numTaxi=" + numTaxi + '}';
     }
-   
-    
+
 }

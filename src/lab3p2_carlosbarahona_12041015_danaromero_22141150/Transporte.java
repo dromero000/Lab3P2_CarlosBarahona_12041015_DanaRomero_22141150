@@ -12,21 +12,23 @@ import java.util.ArrayList;
  * @author Dana Romero
  */
 public class Transporte {
+
     //Esta es una clase padre
     //Atributos
     String placa;
     String color;
     Transportistas transportista;
     int cantMax;
-    ArrayList <Estaciones> estaciones;
-    
-    
-    public Transporte (String placa, String color, Transportistas transportista){
-       this.placa = placa;
-       this.color= color;
-       this.transportista=transportista;
-       estaciones = new ArrayList <Estaciones>();
-       
+    ArrayList<Estaciones> estaciones;
+    ArrayList<Alumnos> alumnos;
+
+    public Transporte(String placa, String color, Transportistas transportista, int cantMax, ArrayList<Estaciones> estaciones, ArrayList<Alumnos> alumnos) {
+        this.placa = placa;
+        this.color = color;
+        this.transportista = transportista;
+        this.cantMax = cantMax;
+        this.estaciones = estaciones;
+        this.alumnos = alumnos;
     }
 
     public String getPlaca() {
@@ -69,12 +71,17 @@ public class Transporte {
         this.estaciones = estaciones;
     }
 
+    public ArrayList<Alumnos> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(ArrayList<Alumnos> alumnos) {
+        this.alumnos = alumnos;
+    }
+
     @Override
     public String toString() {
-        return "Transporte{" + "placa=" + placa + ", color=" + color + ", transportista=" + transportista + ", cantMax=" + cantMax + ", estaciones=" + estaciones + '}';
+        return "Transporte{" + "placa=" + placa + ", color=" + color + ", transportista=" + transportista + ", cantMax=" + cantMax + ", estaciones=" + estaciones + ", alumnos=" + alumnos + '}';
     }
-    
-    
-    
 
 }
